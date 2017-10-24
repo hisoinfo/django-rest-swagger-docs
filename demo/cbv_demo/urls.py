@@ -1,7 +1,10 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 from .views import ContactData
 
+from demo.router import router
+
+router.register(r'api-demo', ContactData, base_name='contact')
 
 urlpatterns = [
-    url(r'^contact', ContactData.as_view(), name='contact'),
+    # url(r'', include(router.urls))
 ]
